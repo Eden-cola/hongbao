@@ -14,3 +14,17 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+$app->get('/phpinfo', function () use ($app) {
+    phpinfo();
+});
+
+$app->post('/sign-in', "AjaxController@signIn");
+$app->post('/lot-add', "LotController@add");
+$app->post('/lot-create', "LotController@create");
+$app->post('/lot-list', "LotController@list");
+$app->post('/lot-getDownloadUrl', "LotController@getDownloadUrl");
+$app->get('/download', "LotController@download");
+$app->get('/${id}/{key}', "QrcodeController@use");
+$app->get('/qr-ajax-use', "QrcodeController@ajaxUse");
+$app->get('/test', "LotController@create");
